@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import classes from "./StateButton.module.css"
 
 const StateButton = (props) => {
     let btnClass = classes.buttonNo;
     let btnName = "Нет"
 
-    if(props.result == "y"){
+    if (props.result == "y") {
         btnClass = classes.buttonYes;
         btnName = "Да";
     }
 
-    return(
+    return (
         <button {...props} className={btnClass}>
             {btnName}
         </button>

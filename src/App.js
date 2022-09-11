@@ -1,25 +1,64 @@
-import React, {useState} from 'react';
-import QuestionForm from './Components/QuestionForm';
+import React, { useState } from "react";
+import QuestionForm from "./Components/QuestionForm";
+import Data from "./questions.json";
 
-let test = {id: 3, title: 'Title', desc: "sus"}
-let test2 = {id: 4, title: 'Title2', desc: <h2> I'm not dumb</h2>}
-let test3 = {id: 5, title: 'Title3', desc: "red"}
+/*const test = { id: 3, title: "Title", content: "sus" };
+const test2 = { id: 4, title: "Title2", content: <h2> I'm not dumb</h2> };
+const test3 = { id: 5, title: "Title3", content: "red" };*/
+
+Data.forEach((question) => {
+  if (!question.actions) {
+    question.actions = [];
+  } // фикс если нету действий, чтобы форма не ломалась
+});
 
 function App() {
-  const[curID, setCurId] = useState(1);
-  const[info, setInfo] = useState(test);
+  const [info, setInfo] = useState(Data[0]);
+  const [curID, setCurID] = useState(0);
+  const [answers, setAnswers] = useState([]);
 
-  function buttonYes(){
-    setInfo(test2);
-  }
+  function buttonClick(id, result) {
+    console.log("id click: " + id);
+    console.log(answers);
+    let nextSteps = Data[curID].actions[id].nextStep;
+    let arrID = nextSteps[0].id - 1;
 
-  function buttonNo(){
-    setInfo(test3);
+    let skipAll = false;
+    nextSteps.forEach((step) => {
+      if (skipAll) return;
+      let correctAnswers = 0;
+      arrID = step.id - 1;
+
+      if (step.conditions) {
+        step.conditions.forEach((condition) => {
+          let cid = condition.id - 1;
+          if (answers[cid] == condition.result) {
+            correctAnswers += 1;
+          }
+          console.log(answers[cid]);
+        });
+        
+        console.log("correct:" + correctAnswers);
+        if (correctAnswers == step.conditions.length) {
+          skipAll = true;
+          setInfo(Data[arrID]);
+          setCurID(arrID);
+          return;
+        }
+      } else {
+        setInfo(Data[arrID]);
+        setCurID(arrID);
+      }
+    });
+
+    setAnswers([...answers, result ]);
   }
 
   return (
     <div className="main">
-      <QuestionForm buttons = {{buttonYes, buttonNo}} info={info}> </QuestionForm>
+      <QuestionForm buttonClick={buttonClick} info={info}>
+        {" "}
+      </QuestionForm>
     </div>
   );
 }
