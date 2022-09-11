@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "Title string",
-        "content": null,
+        "content": "<h1> test</h1>",
         "actions": [
             {
                 "id": 1,
@@ -64,15 +64,15 @@
                 "result": "y",
                 "nextStep": [
                     {
-                        "id": 5,
+                        "id": 6,
                         "conditions": [
                             {
                                 "id": 1,
-                                "result": "y"
+                                "result": "n"
                             },
                             {
                                 "id": 2,
-                                "result": "y"
+                                "result": "n"
                             }
                         ]
                     },
@@ -114,5 +114,10 @@
         "id": 5,
         "title": "Title string",
         "content": "Content string"
+    },
+    {
+        "id": 6,
+        "title": "Title string",
+        "content": ":("
     }
 ]

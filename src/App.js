@@ -7,9 +7,7 @@ const test2 = { id: 4, title: "Title2", content: <h2> I'm not dumb</h2> };
 const test3 = { id: 5, title: "Title3", content: "red" };*/
 
 Data.forEach((question) => {
-  if (!question.actions) {
-    question.actions = [];
-  } // фикс если нету действий, чтобы форма не ломалась
+  if (!question.actions) question.actions = []; // фикс если нету действий, чтобы форма не ломалась
 });
 
 function App() {
@@ -18,8 +16,6 @@ function App() {
   const [answers, setAnswers] = useState([]);
 
   function buttonClick(id, result) {
-    console.log("id click: " + id);
-    console.log(answers);
     let nextSteps = Data[curID].actions[id].nextStep;
     let arrID = nextSteps[0].id - 1;
 
@@ -32,15 +28,12 @@ function App() {
       if (step.conditions) {
         step.conditions.forEach((condition) => {
           let cid = condition.id - 1;
-          if (answers[cid] == condition.result) {
-            correctAnswers += 1;
-          }
-          console.log(answers[cid]);
+          if (answers[cid] == condition.result) correctAnswers += 1;
         });
-        
-        console.log("correct:" + correctAnswers);
+
         if (correctAnswers == step.conditions.length) {
           skipAll = true;
+
           setInfo(Data[arrID]);
           setCurID(arrID);
           return;
@@ -51,9 +44,8 @@ function App() {
       }
     });
 
-    setAnswers([...answers, result ]);
+    setAnswers([...answers, result]);
   }
-
   return (
     <div className="main">
       <QuestionForm buttonClick={buttonClick} info={info}>

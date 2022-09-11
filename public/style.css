@@ -22,18 +22,3 @@ body {
 
     overflow: hidden;
 }
-
-.questionForm{
-    display: inline-block;
-    line-height: normal;
-    vertical-align: middle;
-    text-align: left;
-
-    background-color: #fffbee;
-    width: 300px;
-    margin: 5px;
-    padding: 10px 20px;
-    
-    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.7);
-    border-radius: 2%;
-}

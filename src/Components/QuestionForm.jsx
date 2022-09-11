@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import StateButton from "./UI/button/StateButton";
+import classes from "./QuestionForm.module.css";
 
 const QuestionForm = ({ buttonClick, info }) => {
   return (
-    <div className="questionForm">
-      {info.id}
+    <div className={classes.questionForm}>
+      <div className={classes.questionID}> {info.id}</div>
       <h1>{info.title}</h1>
-      <div>{info.content}</div>
-      {info.actions.map((action) => 
-        <StateButton 
-          result = {action.result}
-          onClick={ () => buttonClick(action.id - 1, action.result) }
-          key = {action.id}
-        ></StateButton>
-      )}
-      
+      <div dangerouslySetInnerHTML={{ __html: info.content }}></div>
+
+      {info.actions.map((action) => (
+        <StateButton
+          result={action.result}
+          onClick={() => buttonClick(action.id - 1, action.result)}
+          key={action.id}
+        >
+          {action.title}
+        </StateButton>
+      ))}
     </div>
   );
 };
 
 export default QuestionForm;
-
-/*<StateButton result="y" onClick={() => buttons.buttonYes()}></StateButton>
-      <StateButton result="n" onClick={() => buttons.buttonNo()}></StateButton>*/
