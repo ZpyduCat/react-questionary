@@ -1,0 +1,88 @@
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.item::before {
+  position: absolute;
+  content: "";
+  border-bottom: 10px solid #137ec0;
+  width: 100%;
+  top: 15px;
+  left: -50%;
+  z-index: 2;
+}
+
+.item::after {
+  position: absolute;
+  content: "";
+  border-bottom: 10px solid #137ec0;
+  width: 100%;
+  top: 15px;
+  left: 50%;
+  z-index: 2;
+}
+
+.item .counter {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #137ec0;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.counter.active {
+  font-weight: bold;
+  width: 60px;
+  height: 60px;
+  bottom: 10px;
+}
+
+.item.yes .counter {
+  background-color: #228b22;
+}
+
+.item.yes::after {
+  position: absolute;
+  content: "";
+  border-bottom: 10px solid #228b22;
+  width: 100%;
+  top: 15px;
+  left: 50%;
+  z-index: 3;
+}
+
+.item.no .counter {
+  background-color: #cd222c;
+}
+
+.item.no::after {
+  position: absolute;
+  content: "";
+  border-bottom: 10px solid #cd222c;
+  width: 100%;
+  top: 15px;
+  left: 50%;
+  z-index: 3;
+}
+
+.item:first-child::before {
+  content: none;
+}
+
+.item:last-child::after {
+  content: none;
+}

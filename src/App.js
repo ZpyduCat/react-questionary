@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionForm from "./Components/QuestionForm";
+import StepProgressBar from "./Components/StepProgressBar";
 import Data from "./questions.json";
 
 /*const test = { id: 3, title: "Title", content: "sus" };
@@ -48,6 +49,7 @@ function App() {
   }
   return (
     <div className="main">
+      <StepProgressBar curID={curID} answers={answers} Data={Data}> </StepProgressBar> 
       <QuestionForm buttonClick={buttonClick} info={info}>
         {" "}
       </QuestionForm>
