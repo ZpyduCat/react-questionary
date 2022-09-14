@@ -1,23 +1,15 @@
 import React, { useState } from "react";
 import QuestionForm from "./Components/Question Form/QuestionForm";
 import StepProgressBar from "./Components/Step Progress Bar/StepProgressBar";
-import Data from "./questions.json";
-
-/*const test = { id: 3, title: "Title", content: "sus" };
-const test2 = { id: 4, title: "Title2", content: <h2> I'm not dumb</h2> };
-const test3 = { id: 5, title: "Title3", content: "red" };*/
-
-Data.forEach((question) => {
-  if (!question.actions) question.actions = []; // фикс если нету действий, чтобы форма не ломалась
-});
+import Questions from "./questions.json";
 
 function App() {
-  const [info, setInfo] = useState(Data[0]);
+  const [info, setInfo] = useState(Questions[0]);
   const [curID, setCurID] = useState(0);
   const [answers, setAnswers] = useState([]);
 
   function buttonClick(id, result) {
-    let nextSteps = Data[curID].actions[id].nextStep;
+    let nextSteps = Questions[curID].actions[id].nextStep;
     let arrID = nextSteps[0].id - 1;
 
     let skipAll = false;
@@ -35,12 +27,12 @@ function App() {
         if (correctAnswers == step.conditions.length) {
           skipAll = true;
 
-          setInfo(Data[arrID]);
+          setInfo(Questions[arrID]);
           setCurID(arrID);
           return;
         }
       } else {
-        setInfo(Data[arrID]);
+        setInfo(Questions[arrID]);
         setCurID(arrID);
       }
     });
@@ -49,7 +41,7 @@ function App() {
   }
   return (
     <div className="main">
-      <StepProgressBar curID={curID} answers={answers} Data={Data}> </StepProgressBar> 
+      <StepProgressBar curID={curID} answers={answers} Data={Questions}> </StepProgressBar> 
       <QuestionForm buttonClick={buttonClick} info={info}>
         {" "}
       </QuestionForm>
