@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./StepProgressBar.module.css";
-import SPBItem from "./UI/SPBItem";
+import SPBItem from "./Item/Item";
 
 const StepProgressBar = ({ curID, answers, Data }) => {
   return (

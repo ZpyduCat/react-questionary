@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./SPBItem.module.css";
+import classes from "./Item.module.css";
 
 const SPBItem = ({ children, active, result }) => {
   let counterClass = classes.counter;

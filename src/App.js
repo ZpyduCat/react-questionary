@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import QuestionForm from "./Components/QuestionForm";
-import StepProgressBar from "./Components/StepProgressBar";
+import QuestionForm from "./Components/Question Form/QuestionForm";
+import StepProgressBar from "./Components/Step Progress Bar/StepProgressBar";
 import Data from "./questions.json";
 
 /*const test = { id: 3, title: "Title", content: "sus" };

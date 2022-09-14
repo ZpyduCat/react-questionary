@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import StateButton from "./UI/button/StateButton";
+import StateButton from "../UI/Button/StateButton";
 import classes from "./QuestionForm.module.css";
 
 const QuestionForm = ({ buttonClick, info }) => {
