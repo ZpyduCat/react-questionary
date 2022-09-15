@@ -3,7 +3,6 @@ import QuestionForm from "./Components/Question Form/QuestionForm";
 import StepProgressBar from "./Components/Step Progress Bar/StepProgressBar";
 
 const Interactive = ({questions}) => {
-  const [info, setInfo] = useState(questions[0]);
   const [curID, setCurID] = useState(0);
   const [answers, setAnswers] = useState([]);
 
@@ -26,12 +25,10 @@ const Interactive = ({questions}) => {
         if (correctAnswers === step.conditions.length) {
           skipAll = true;
 
-          setInfo(questions[arrID]);
           setCurID(arrID);
           return;
         }
       } else {
-        setInfo(questions[arrID]);
         setCurID(arrID);
       }
     });
@@ -41,7 +38,7 @@ const Interactive = ({questions}) => {
   return (
     <div className="main">
       <StepProgressBar curID={curID} answers={answers} questions={questions}/> 
-      <QuestionForm buttonClick={buttonClick} info={info} />
+      <QuestionForm buttonClick={buttonClick} info={questions[curID]} />
     </div>
   );
 }
