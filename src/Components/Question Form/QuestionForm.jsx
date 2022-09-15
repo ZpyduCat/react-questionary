@@ -9,7 +9,7 @@ const QuestionForm = ({ buttonClick, info }) => {
       <h1>{info.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: info.content }}></div>
 
-      {info.actions.map((action) => (
+      {info?.actions?.map((action) => (
         <StateButton
           result={action.result}
           onClick={() => buttonClick(action.id - 1, action.result)}

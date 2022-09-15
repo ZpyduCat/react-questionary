@@ -5,7 +5,7 @@ const StateButton = ({ children, result, ...props }) => {
   return (
     <button
       {...props}
-      className={result == "y" ? classes.buttonYes : classes.buttonNo}
+      className={result === "y" ? classes.buttonYes : classes.buttonNo}
     >
       {children}
     </button>

@@ -21,10 +21,10 @@ function App() {
       if (step.conditions) {
         step.conditions.forEach((condition) => {
           let cid = condition.id - 1;
-          if (answers[cid] == condition.result) correctAnswers += 1;
+          if (answers[cid] === condition.result) correctAnswers += 1;
         });
 
-        if (correctAnswers == step.conditions.length) {
+        if (correctAnswers === step.conditions.length) {
           skipAll = true;
 
           setInfo(Questions[arrID]);
