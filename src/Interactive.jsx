@@ -38,7 +38,7 @@ const Interactive = ({questions}) => {
   return (
     <div className="main">
       <StepProgressBar curID={curID} answers={answers} questions={questions}/> 
-      <QuestionForm buttonClick={buttonClick} info={questions[curID]} />
+      <QuestionForm buttonClick={buttonClick} question={questions[curID]} />
     </div>
   );
 }
