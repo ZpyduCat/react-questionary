@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuestionForm from "./QuestionForm/QuestionForm";
 import StepProgressBar from "./StepProgressBar/StepProgressBar";
 
-const Interactive = ({ questions }) => {
+const InteractiveForm = ({ questions }) => {
   const [curID, setCurID] = useState(0);
   const [answers, setAnswers] = useState([]);
 
@@ -43,4 +43,4 @@ const Interactive = ({ questions }) => {
   );
 }
 
-export default Interactive;
+export default InteractiveForm;
