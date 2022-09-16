@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import QuestionForm from "./Question Form/QuestionForm";
-import StepProgressBar from "./Step Progress Bar/StepProgressBar";
+import QuestionForm from "./QuestionForm/QuestionForm";
+import StepProgressBar from "./StepProgressBar/StepProgressBar";
 
 const Interactive = ({ questions }) => {
   const [curID, setCurID] = useState(0);
