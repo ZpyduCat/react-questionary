@@ -1,5 +1,5 @@
 import React from "react";
-import Interactive from "./Interactive";
+import Interactive from "./Components/InteractiveForm";
 import Questions from "./questions.json";
 
 function App() {
