@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import StateButton from "../UI/Button/StateButton";
 import classes from "./QuestionForm.module.css";
 

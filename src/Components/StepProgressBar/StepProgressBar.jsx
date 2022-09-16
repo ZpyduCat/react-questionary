@@ -9,7 +9,7 @@ const StepProgressBar = ({ curID, answers, questions }) => {
       {questions.map((question) => (
         <SPBItem
           key={question.id}
-          active={curID == question.id - 1}
+          active={curID === question.id - 1}
           result={answers ? answers[question.id - 1] : ""}
         >
           {question.id}
