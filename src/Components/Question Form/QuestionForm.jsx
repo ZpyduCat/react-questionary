@@ -6,7 +6,7 @@ const QuestionForm = ({ buttonClick, question }) => {
   return (
     <div className={classes.questionForm}>
       <div className={classes.questionID}> {question.id}</div>
-      <h1>{question.title}</h1>
+      <h2>{question.title}</h2>
       <div dangerouslySetInnerHTML={{ __html: question.content }}></div>
 
       {question?.actions?.map((action) => (

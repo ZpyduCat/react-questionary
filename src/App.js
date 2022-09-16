@@ -5,7 +5,7 @@ import Questions from "./questions.json";
 function App() {
   return (
     <div>
-      <Interactive questions={Questions}/>
+      <Interactive questions={Questions} />
     </div>
   );
 }

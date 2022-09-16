@@ -5,7 +5,7 @@ import SPBItem from "./Item/Item";
 const StepProgressBar = ({ curID, answers, questions }) => {
   return (
     <div className={classes.wrapper}>
-      <div className={classes.line}/>
+      <div className={classes.line} />
       {questions.map((question) => (
         <SPBItem
           key={question.id}

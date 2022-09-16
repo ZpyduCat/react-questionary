@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import QuestionForm from "./Components/Question Form/QuestionForm";
 import StepProgressBar from "./Components/Step Progress Bar/StepProgressBar";
 
-const Interactive = ({questions}) => {
+const Interactive = ({ questions }) => {
   const [curID, setCurID] = useState(0);
   const [answers, setAnswers] = useState([]);
 
@@ -37,7 +37,7 @@ const Interactive = ({questions}) => {
   }
   return (
     <div className="main">
-      <StepProgressBar curID={curID} answers={answers} questions={questions}/> 
+      <StepProgressBar curID={curID} answers={answers} questions={questions} />
       <QuestionForm buttonClick={buttonClick} question={questions[curID]} />
     </div>
   );
