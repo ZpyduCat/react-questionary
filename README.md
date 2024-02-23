@@ -1,3 +1,3 @@
-# Imagine good looking README.
+# Simple questionary on react.
 
-Just try it, please.
+Questionary that takes questions from json file.
